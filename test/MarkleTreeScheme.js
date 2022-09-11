@@ -122,15 +122,7 @@ async function main(outputPath) {
 
     const treeVerify = merkleTree.verify(proof, leaf, merkleRoot);
     console.log("tree.verify = ", treeVerify);
-    /*
-   输出的positions = [1, 1, 1, 1, 1, 1, 1]
-   实际应为positions = [1, 1, 1, 1, 1, 0, 1]
-   这里根据输出的树发现388与1c1反了过来，输出的position错误
-   本应该388在左，输入：388d37353cd298dfb3382eed418c0d434f95112a4f5a23fd7a7d06ecd47da11a1c15a3c4c7cdd8bfa25d81a41724b496912a47ff27bf13e9490dab23a467dd7c
-   得到：d3c2e66216600cdf829d28ac559fe03366d732a96a3b9f5eef4884c8e9f15d20
-   实际388在右，输入：1c15a3c4c7cdd8bfa25d81a41724b496912a47ff27bf13e9490dab23a467dd7c388d37353cd298dfb3382eed418c0d434f95112a4f5a23fd7a7d06ecd47da11a
-   得到：64ccd0697c79b58827b59d29a6fc008d210116998e5b0db702b67d95325e2c1e 
-   */
+
 
     const contractVerify = await kycManager.verify.call(hexroot, hexleaf, hexproof, positions)
         .then(() => process.exit(0))
