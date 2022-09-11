@@ -10,9 +10,6 @@ interface KYCNFTInterface {
     function updateExpirationTime(uint256 tokenId, uint256 timestamp) external;
 }
 
-/*
-n, accumulator is bigNumber，(May be out of range of uint256)，so use string as the value type
-*/
 contract KYCManager is Ownable {
     struct UserData {
         uint256 NFTId;
