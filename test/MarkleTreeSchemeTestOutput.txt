@@ -183,17 +183,6 @@ hexproof =
   '1c15a3c4c7cdd8bfa25d81a41724b496912a47ff27bf13e9490dab23a467dd7c',
   '7836e2e13557e9941cdf1a5e95fa3436dedacb6757268ecc3af5f1db16de3362'
 ]
-/*
-应为positions = 
-[
-  1, 1, 1, 1,
-  1, 0, 1
-]这里发现388与1c1反了过来，输出的position错误，按输出的树，
-本应该388在左，输入：388d37353cd298dfb3382eed418c0d434f95112a4f5a23fd7a7d06ecd47da11a1c15a3c4c7cdd8bfa25d81a41724b496912a47ff27bf13e9490dab23a467dd7c
-得到：d3c2e66216600cdf829d28ac559fe03366d732a96a3b9f5eef4884c8e9f15d20
-实际388在右，输入：1c15a3c4c7cdd8bfa25d81a41724b496912a47ff27bf13e9490dab23a467dd7c388d37353cd298dfb3382eed418c0d434f95112a4f5a23fd7a7d06ecd47da11a
-得到：64ccd0697c79b58827b59d29a6fc008d210116998e5b0db702b67d95325e2c1e 
-*/
 
 positions =  
 [
@@ -202,32 +191,3 @@ positions =
 ]
 KYCManager deployed to: 0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6
 tree.verify =  true
-Error: missing argument: passed to contract (count=3, expectedCount=4, code=MISSING_ARGUMENT, version=contracts/5.6.0)
-    at Logger.makeError (/Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/logger/src.ts/index.ts:261:28)
-    at Logger.throwError (/Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/logger/src.ts/index.ts:273:20)
-    at Logger.checkArgumentCount (/Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/logger/src.ts/index.ts:332:18)
-    at /Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/contracts/src.ts/index.ts:187:12
-    at step (/Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/contracts/lib/index.js:48:23)
-    at Object.next (/Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/contracts/lib/index.js:29:53)
-    at /Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/contracts/lib/index.js:23:71
-    at new Promise (<anonymous>)
-    at __awaiter (/Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/contracts/lib/index.js:19:12)
-    at populateTransaction (/Users/zhangyuanyi/Downloads/KYCSchemeForAllBlockchains/node_modules/@ethersproject/contracts/lib/index.js:152:12) {
-  reason: 'missing argument: passed to contract',
-  code: 'MISSING_ARGUMENT',
-  count: 3,
-  expectedCount: 4
-}
-zhangyuanyi@192 KYCSchemeForAllBlockchains % 
-
-
-
-
-
-0xe00b6b13d77ac98f8ff53658241723b8347250c8883ff06c064456b044090f7e
-
-0x6970d5b0fd6192037aeceafb671cc7d019d410277800a1d72ce47226e9d39a05
-
-["0x8c17c9babe26f471e0fad9f6dc4e6e0c855a10016a2e613d8be32969e1bd04d3","0xf4fefbf2b950c467a0a03223ddb1d5ce61d6df4c0112a7433dfe8fa05cd9cbd6","0xdfcee74cc1bd88af159e13de7f311d0edb2794d50ba9d5a215a7cf6800cb8263","0xb74f307302654cd6ce71639b56bd94aae0098986875f7def2362a38aa4594f01","0x4332328b7566b7fa03cede58e26980ee05305c41310c599d71106b43e71cf001","0x1c15a3c4c7cdd8bfa25d81a41724b496912a47ff27bf13e9490dab23a467dd7c","0x7836e2e13557e9941cdf1a5e95fa3436dedacb6757268ecc3af5f1db16de3362"]
-
-[1,1,1,1,1,1,1]
