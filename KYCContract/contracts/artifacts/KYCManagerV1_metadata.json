@@ -1,0 +1,410 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "managerAddr",
+						"type": "address"
+					}
+				],
+				"name": "NFTIdOfManager",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "NFTid",
+						"type": "uint256"
+					}
+				],
+				"name": "availableOfNFTId",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "tokenUrl",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expirationTime",
+						"type": "uint256"
+					}
+				],
+				"name": "createKYCNFT",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "NFTid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "manager",
+						"type": "address"
+					}
+				],
+				"name": "initManagerAddr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "NFTid",
+						"type": "uint256"
+					}
+				],
+				"name": "managerOfNFTId",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newManager",
+						"type": "address"
+					}
+				],
+				"name": "modifyManagerAddr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kycnftContractAddr",
+						"type": "address"
+					}
+				],
+				"name": "setKYCNFTContractAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "NFTid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_available",
+						"type": "bool"
+					}
+				],
+				"name": "setNFTAvailableOfNFTId",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_accumulator",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_n",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_g",
+						"type": "uint256"
+					}
+				],
+				"name": "updateAccumulator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_n",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_g",
+						"type": "uint256"
+					}
+				],
+				"name": "updateAccumulatorPublicKey",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_accumulator",
+						"type": "bytes"
+					}
+				],
+				"name": "updateAccumulatorValue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "managerAddr",
+						"type": "address"
+					}
+				],
+				"name": "userDataOfManager",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "NFTid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "accumulator",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "n",
+								"type": "bytes"
+							},
+							{
+								"internalType": "uint256",
+								"name": "g",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct KYCManagerV1.UserData",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "NFTid",
+						"type": "uint256"
+					}
+				],
+				"name": "userDataOfNFTId",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "NFTid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "accumulator",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "n",
+								"type": "bytes"
+							},
+							{
+								"internalType": "uint256",
+								"name": "g",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct KYCManagerV1.UserData",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/KYCManager.sol": "KYCManagerV1"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"contracts/KYCManager.sol": {
+			"keccak256": "0xf913d5dc3b3fbbad24a0beee654e1888039f37c5190721591774b1ca2ecaaa6f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://45ee1b9dfe3edd31cac37845714e1a12b7fcadde43b210d7a389174cf8e33991",
+				"dweb:/ipfs/QmNtVz7yfqHE3LKp5p93wQQ7PtkNqhkbCFSw6s8smBMsza"
+			]
+		}
+	},
+	"version": 1
+}

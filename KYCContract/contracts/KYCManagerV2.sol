@@ -10,6 +10,9 @@ interface KYCNFTInterface {
     function updateExpirationTime(uint256 tokenId, uint256 timestamp) external;
 }
 
+/*
+n, accumulator is bigNumber，(May be out of range of uint256)，so use string as the value type
+*/
 contract KYCManager is Ownable {
     struct UserData {
         uint256 NFTId;
@@ -29,7 +32,7 @@ contract KYCManager is Ownable {
     {
         kycNFTContract = KYCNFTInterface(_kycnftContractAddr);
     }
-
+    
     function createKYCNFT(
         string memory tokenUrl,
         address manager,
@@ -39,7 +42,7 @@ contract KYCManager is Ownable {
         address kycnftmanager = (address)(this);
         uint256 NFTId = kycNFTContract.awardItem(kycnftmanager, tokenUrl);
         kycNFTContract.updateExpirationTime(NFTId, expirationTime);
-        setNFTAvailableOfNFTId(NFTId, true);
+        setAvailableOfNFTId(NFTId, true);
         initManagerAddr(NFTId, manager);
     }
 
@@ -67,9 +70,9 @@ contract KYCManager is Ownable {
     /*
     ManagerToUserData
   */
-    function updateMerkleRoot(byte32 _merkleRoot) public {
+    function updateMerkleRoot(bytes32 newMerkleRoot) public {
         UserData storage userdata = ManagerToUserData[msg.sender];
-        userdata.merkleRoot = _merkleRoot;
+        userdata.merkleRoot = newMerkleRoot;
     }
 
     /*
@@ -117,7 +120,7 @@ contract KYCManager is Ownable {
         bytes32 leaf,
         bytes32[] calldata proof,
         uint256[] calldata positions
-    ) internal pure returns (bool) {
+    ) public pure returns (bool) {
         bytes32 computedHash = leaf;
 
         for (uint256 i = 0; i < proof.length; i++) {
@@ -137,15 +140,41 @@ contract KYCManager is Ownable {
         return computedHash == root;
     }
 
+    function verifyMerkleProof2(
+        bytes32 leaf,
+        bytes32[] calldata proof,
+        uint256[] calldata positions
+    ) public pure returns (bytes32) {
+        bytes32 computedHash = leaf;
+
+        for (uint256 i = 0; i < proof.length; i++) {
+            bytes32 proofElement = proof[i];
+
+            if (positions[i] == 1) {
+                computedHash = keccak256(
+                    abi.encodePacked(computedHash, proofElement)
+                );
+            } else {
+                computedHash = keccak256(
+                    abi.encodePacked(proofElement, computedHash)
+                );
+            }
+        }
+
+        return computedHash;
+    }
+
+
     function verifyKYCAuthProof(
         bytes32 leaf,
         bytes32[] calldata proof,
         uint256[] calldata positions,
-        uint256 nft_id
-    ) public returns (bool) {
+        uint256 NFTId
+    )public view returns (bool) {
         address addr = NFTIdToManager[NFTId];
         UserData memory userdata = ManagerToUserData[addr];
-        return verify(userdata.merkleRoot, leaf, proof, positions);
+        bool result = verifyMerkleProof(userdata.merkleRoot, leaf, proof, positions);
+        return result;
     }
 
     fallback() external payable {

@@ -42,15 +42,15 @@ fn main() {
     rng2.seed(50, &raw2);
 
     println!("BBS+ Signature");
-    println!("Key Gen");
+    println!("Key Gen ******************* ");
     let bbs_plus_key = BBSPlusKey::new(attributes.len(), &q, &mut rng2);
 
-    println!("Sign");
+    println!("Sign ******************* ");
     let signature = bbs_plus_key.sign(attributes, &q, &mut rng2);
 
     let test = vec!["name=alice", "age=122", "address=X"];
 
-    println!("Verify");
+    println!("Verify ******************* ");
     let verified = signature.verify(test, &bbs_plus_key.pk, &q);
 
     println!("attributes == test, Should be true, Verified : {} ", verified);

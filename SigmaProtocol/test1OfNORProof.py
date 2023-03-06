@@ -62,7 +62,6 @@ import utils
 
 def test_sigma_pok_discrete_log_disjunction(n):
     # Prove knowledge of OR composition of 2 discrete logs, PoK(a or b): g1^a1 = P1 or g2^a2 = P2  or g3^a3 = P3 
-   
     g = []
     a = []
     P = []
@@ -72,8 +71,7 @@ def test_sigma_pok_discrete_log_disjunction(n):
        a.append(ai)
        Pi = g[i] * ai
        P.append(Pi)
-   
-    
+
     # The prover knows only a1
     tcs = prove_discrete_log_disjunction(g, a[0], P, n) 
     assert verify_discrete_log_disjunction(g, P, tcs, n)
@@ -103,7 +101,6 @@ def prove_discrete_log_disjunction(g, a1, P, n):
        c1 = (c1-c[i-1])% utils.ORDER
     c.insert(0, c1)
 
-
     s1 = (r1 + ((c1 * a1) % utils.ORDER)) % utils.ORDER
     s.insert(0, s1)
 
@@ -121,14 +118,14 @@ def verify_discrete_log_disjunction(g, P, tcs, n):
         cn = cn + c[i] % utils.ORDER
 
     assert (cx == (cn % utils.ORDER))
-    boolx = True
+    result = True
     for i in range(n):
          lhs = g[i] * s[i]
          rhs = t[i] + (P[i] * c[i])
-         print("lhs == rhs ? ",boolx)
-         boolx = boolx and (lhs == rhs)
-    print("boox = ",boolx)
-    return boolx
+         print("lhs == rhs ? ",result)
+         result = result and (lhs == rhs)
+    print("result = ",result)
+    return result
 
 
 test_sigma_pok_discrete_log_disjunction(8)

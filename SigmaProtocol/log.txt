@@ -1,0 +1,13 @@
+
+zhangyuanyi@MacBook-Pro KYCSolutionForAllBlockchains % /usr/bin/python3 /Users/zhangyuanyi/Downloads/KYCSolutionForAllBlockchains/
+SigmaProtocol/test1OfNORProof.py
+lhs == rhs ?  True
+lhs == rhs ?  True
+lhs == rhs ?  True
+lhs == rhs ?  True
+lhs == rhs ?  True
+lhs == rhs ?  True
+lhs == rhs ?  True
+lhs == rhs ?  True
+result =  True
+
