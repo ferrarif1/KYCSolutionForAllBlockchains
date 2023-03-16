@@ -332,9 +332,9 @@ function probablyPrime(n, k) {
   The best known SPRP bases sets
   https://zh.wikipedia.org/wiki/%E7%B1%B3%E5%8B%92-%E6%8B%89%E5%AE%BE%E6%A3%80%E9%AA%8C#cite_note-1
   https://miller-rabin.appspot.com/
-  20-04-2011	at least 2^64	[2, 325, 9375, 28178, 450775, 9780504, 1795265022]	Jim Sinclair The best known SPRP bases sets
+  20-04-2011	at least 2^64	[2, 3, 5, 7, 11, 13, 17]
   */
-  let asss = [2, 325, 9375, 28178, 450775, 9780504, 1795265022]
+  let asss = [2, 3, 5, 7, 11, 13, 17]
   let j = 0
   WitnessLoop: do {
 
